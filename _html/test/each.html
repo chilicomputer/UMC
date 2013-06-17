@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="apple-touch-icon-precomposed" href="http://m.baidu.com/static/index/screen_icon.png"/>
+		<title>each</title>
+		<!-- The line below must be kept intact for Sencha Command to build your application -->
+		<style type="text/css">
+			.divClass{
+				width: 100px;
+				height: 100px;
+				background-color: #000;
+			}
+			.changeDivClass {
+				background-color: #fff;
+			}
+		</style>
+		<script id="microloader" type="text/javascript" src="http://js.t.sinajs.cn/UMC/js/UMC-debug.js"></script>
+	</head>
+	<body>
+		<div>[1,2,3,4]</div>
+		<input type="button" value="each" id="eachArrTest">
+		<div id="test"></div>
+		<div>{a:1,b:2,c:3}</div>
+		<input type="button" value="each" id="eachObjTest">
+		<div id="testobj"></div>
+		<script type="text/javascript">
+			var li1 = [1,2,3,4];
+			var li3 = {a:1, b:2, c:3};
+			UMC.addEvent(UMC.E('eachArrTest'),'click',function(){
+				var li2 = UMC.each(li1, function(v, i){
+					return v + i;
+				});
+				UMC.E('test').innerHTML = li2;
+			})
+    		UMC.addEvent(UMC.E('eachObjTest'),'click',function(){
+    			var html = "";
+				var li4 = UMC.each(li3, function(v, i){
+					html += '<div>'+i+'</div>';
+				});
+				UMC.E('testobj').innerHTML = html;
+			})
+		</script>
+	</body>
+</html>

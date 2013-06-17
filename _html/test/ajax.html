@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="apple-touch-icon-precomposed" href="http://m.baidu.com/static/index/screen_icon.png"/>
+		<title>ajax</title>
+		<!-- The line below must be kept intact for Sencha Command to build your application -->
+		<style type="text/css">
+		</style>
+		<script id="microloader" type="text/javascript" src="http://js.t.sinajs.cn/UMC/js/UMC-debug.js"></script>
+	</head>
+	<body>
+		<input type="text" id="ajaxVal1" value=""><input type="text" id="ajaxVal2" value=""><input type="button" id="ajaxSend" value="send">
+		<script type="text/javascript">
+			UMC.addEvent(UMC.E('ajaxSend'),'click',function(){
+				var ajaxArgs1 = UMC.E('ajaxVal1').value;
+				var ajaxArgs2 = UMC.E('ajaxVal2').value;
+				var options = {
+			        method:"POST",
+			        onSuccess:function(data){
+			        	console.log(data)
+			        },
+			        url:"/aj/getGiftlist.json",
+			        args:{args1: ajaxArgs1, args2: ajaxArgs2},
+			        onError : function(){
+			        	console.log(123)
+			        }
+		        };
+				UMC.ajax(options);
+			})
+		</script>
+	</body>
+</html>

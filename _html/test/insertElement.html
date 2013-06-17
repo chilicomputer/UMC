@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="apple-touch-icon-precomposed" href="http://m.baidu.com/static/index/screen_icon.png"/>
+		<title>insertElement</title>
+		<!-- The line below must be kept intact for Sencha Command to build your application -->
+		<style type="text/css">
+			.divClass{
+				width: 100px;
+				height: 100px;
+				background-color: #000;
+			}
+			.changeDivClass {
+				background-color: #fff;
+			}
+		</style>
+		<script id="microloader" type="text/javascript" src="http://js.t.sinajs.cn/UMC/js/UMC-debug.js"></script>
+	</head>
+	<body>
+		<div id="divClass">
+			<div id="divInner">divInner</div>
+			<ul>
+				<li>li1</li>
+				<li>li2</li>
+				<li>li3</li>
+				<li>li4</li>
+				<li>li5</li>
+			</ul>
+		</div>
+		<div style="float:left;">
+			<input type="radio" name="pos" value="beforebegin" checked>beforebegin
+			<input type="radio" name="pos" value="afterbegin">afterbegin
+			<input type="radio" name="pos" value="beforeend">beforeend
+			<input type="radio" name="pos" value="afterend">afterend
+			<input type="button" value="插入" style="float:left;" id="btn">
+		</div>
+		<script type="text/javascript">
+			var getPosVal = function() {
+				var pos = UMC.query('[name]');
+				var posVal;
+				for (var i = pos.length - 1; i >= 0; i--) {
+					if(pos[i].checked) {
+						posVal = pos[i].value;
+					}
+				};
+				return posVal;
+			};
+			UMC.domReady(function($) {
+				UMC.addEvent(UMC.E('btn'),'click',function(){
+					var posVal = getPosVal();
+					var div = document.createElement('input');
+					div.setAttribute('value',posVal);
+					UMC.insertElement(UMC.query('#divInner'), div, posVal);
+				})
+            });
+		</script>
+	</body>
+</html>

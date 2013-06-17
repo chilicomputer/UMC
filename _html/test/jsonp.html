@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="apple-touch-icon-precomposed" href="http://m.baidu.com/static/index/screen_icon.png"/>
+		<title>jsonp</title>
+		<!-- The line below must be kept intact for Sencha Command to build your application -->
+		<style type="text/css">
+		</style>
+		<script id="microloader" type="text/javascript" src="http://js.t.sinajs.cn/UMC/js/UMC-debug.js"></script>
+	</head>
+	<body>
+		<input type="button" id="jsonpSend" value="send">
+		<script type="text/javascript">
+			function dynCallBack(data) {
+				alert(data.content)
+			}
+			UMC.addEvent('jsonpSend','click' ,function(){
+				var options = {
+			        url: 'http://10.crossdomaindemo.sinaapp.com/get.js',
+			        success: dynCallBack,
+			        error : function(){}   
+			    };
+		        UMC.jsonP(options);	
+			})
+		</script>
+	</body>
+</html>

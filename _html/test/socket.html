@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+	<meta charset="utf-8" /> 
+	<title>WebSocket Test</title> 
+	<script type="text/javascript" src="http://10.210.215.79/UMC/js/UMC-debug.js"></script>
+	<script language="javascript" type="text/javascript"> 
+	(function($){
+		var wsUri = "ws://echo.websocket.org/";
+		var opts = {
+			'url': wsUri,
+            'onopen' : onOpen,
+            'onmessage' : onMessage,
+            'onclose' : onClose
+		}
+
+		var websocket = $.extension.io.socket(opts);
+		function onOpen(evt) { 
+			writeToScreen("CONNECTED"); 
+			doSend("WebSocket rocks");
+		}  
+		function onClose(evt) {
+			writeToScreen("DISCONNECTED");
+		}  
+		function onMessage(evt) {
+			writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'); 
+			websocket.close();
+		} 
+		function onError(evt) {
+			writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
+		}  
+		function doSend(message) {
+			writeToScreen("SENT: " + message);  
+			websocket.send(message);
+		} 
+		function writeToScreen(message) { 
+			var pre = document.createElement("p");
+			pre.style.wordWrap = "break-word";
+			pre.innerHTML = message;
+			output.appendChild(pre);
+		} 
+	})(UMC);
+	</script>  
+	<h2>WebSocket Test</h2> 
+	<div id="output"></div>  
+</html>

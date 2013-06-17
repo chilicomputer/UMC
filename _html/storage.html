@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="apple-touch-icon-precomposed" href="http://m.baidu.com/static/index/screen_icon.png"/>
+		<title>html</title>
+		<!-- The line below must be kept intact for Sencha Command to build your application -->
+		<script id="microloader" type="text/javascript" src="http://js.t.sinajs.cn/UMC/js/UMC-debug.js"></script>
+		<script type="text/javascript" src="http://js.t.sinajs.cn/theia/js/conf/theia.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			(function($){
+				var storage = $.extension.util.storage;
+				storage.set('a',1);
+				storage.set('b',2);
+				console.log(storage.get('a'));
+				console.log(storage.getAll());
+			})(UMC);
+		</script>
+	</body>
+</html>

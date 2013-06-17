@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="apple-touch-icon-precomposed" href="http://m.baidu.com/static/index/screen_icon.png"/>
+		<title>html</title>
+		<!-- The line below must be kept intact for Sencha Command to build your application -->
+		<script id="microloader" type="text/javascript" src="http://js.t.sinajs.cn/umc/js/UMC-debug.js"></script>
+
+	</head>
+	<body>
+		<div id="test" node-type="idnodetype" class="ttttt">
+			<div class="class">
+				<ul>
+					<li>li1</li>
+					<li>li2</li>
+					<li>li3</li>
+					<li>li4</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			UMC.domReady(function() {
+				UMC.E("test").classList.add("kjjj");
+				alert(UMC.E("test").classList.toggle("aaa"));
+				alert(UMC.E("test").classList);
+                var sizzle = UMC.extension.dom.sizzle;
+                console.log(sizzle('[node-type=idnodetype]'));
+            });
+		</script>
+	</body>
+</html>

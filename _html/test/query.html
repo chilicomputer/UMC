@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="apple-touch-icon-precomposed" href="http://m.baidu.com/static/index/screen_icon.png"/>
+		<title>html</title>
+		<!-- The line below must be kept intact for Sencha Command to build your application -->
+		<script id="microloader" type="text/javascript" src="http://js.t.sinajs.cn/UMC/js/UMC-debug.js"></script>
+	</head>
+	<body>
+		<div id="testId" class="testClass" node-type="testAttr">
+			<div id="childTestId" class="childTestClass"></div>
+			<ul id="testUlId" class="testUlClass">
+				<li id="testLiId" class="testLiClass">li1</li>
+				<li>li2</li>
+				<li>li3</li>
+				<li>li4</li>
+				<li>li5</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			UMC.domReady(function($) {
+			//	var testId = UMC.query('#testId');
+			//	console.log(testId);
+			//	var testUl = UMC.query('div ul')[0];
+			//	console.log(testUl);
+			//	var testClass = UMC.query('.testClass')[0];
+			//	console.log(testClass);
+			//	var testAttr = UMC.query('[node-type="testAttr"]')[0];
+			//	console.log(testAttr);
+			//	var testli = UMC.query('div ul li');
+			//	console.log(testli);
+			//	var testLiClass = UMC.query('div ul .testLiClass');
+			//	console.log(testLiClass);
+				var testAttr = UMC.query('[node-type]')[0];
+				console.log(testAttr);
+            });
+		</script>
+	</body>
+</html>
